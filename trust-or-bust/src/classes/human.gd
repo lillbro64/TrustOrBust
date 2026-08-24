@@ -17,4 +17,4 @@ class_name Human
 
 ## that's the DNI, NIE, National Indentity Card, idk, i use DNI....
 ## the think its is the DNI picture
-@export var picture: Image = load("res://assets/placeholders/textures/hatsune.jpg")
+@export var picture: Texture = load("res://assets/placeholders/textures/hatsune.jpg")
