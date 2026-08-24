@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ch7d4ho50ugcx"]
+
+[ext_resource type="Texture2D" uid="uid://dnggvw88nt3ph" path="res://assets/placeholders/textures/hatsune.jpg" id="1_sbqeu"]
+
+[node name="IndentityCard" type="Node2D" unique_id=698796259]
+
+[node name="Control" type="Control" parent="." unique_id=57970753]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=133409296]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_sbqeu")
+metadata/_edit_use_anchors_ = true
