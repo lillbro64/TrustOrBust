@@ -32,7 +32,7 @@ class_name Human
 ## criminal_record is a record of the crimes (if any) the person has committed. financial_record is
 ## a record of purchases the person has undertaken.
 @export var criminal_record: Array[String]
-@export var financial_record: Array
+@export var financial_record: Array[Purchase]
 
 ## TODO Create/dictate specific special records
 ## special_records stores any special records (e.g. family photo, record of employment, etc.) that may
