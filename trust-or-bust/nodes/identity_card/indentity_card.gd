@@ -9,12 +9,9 @@ var current_mouse_position: Vector2
 
 var holding = false
 
-
-
-
 @export var mass: float = 1
 
-@export var human: Human:
+@export var human: IDCard:
 	get:
 		return human
 	## Fills in ID Card with person's details.
@@ -29,8 +26,10 @@ var holding = false
 		%IDHairC.text = %IDHairC.text.replacen("!HAIRC", value.hair_color)
 		%IDHeight.text = %IDHeight.text.replacen("!HEIGHT", value.height)
 		%IDHome.text = %IDHome.text.replacen("!CITY", value.home_city)
-		if !value.is_child:
-			pass
+		
+		## each fake one has another idcard, the correct one, (idk if its necessary)
+		#if !value.is_child:
+			#pass
 			## TODO figure out how the fuck to change the texture to a different one when the trustee
 			## is fake, the solution below does not work as get_theme_stylebox seems to only return
 			## StyleBoxFlat, which does not have a texture
@@ -68,9 +67,9 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_panel_container_mouse_entered() -> void:
-	print("mouse inside me")
+	#print("mouse inside me")
 	mouse_inside = true
 
 func _on_panel_container_mouse_exited() -> void:
-	print("mouse outside me")
+	#print("mouse outside me")
 	mouse_inside = false

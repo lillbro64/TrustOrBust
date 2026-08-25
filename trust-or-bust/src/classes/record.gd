@@ -5,3 +5,4 @@ extends Resource
 class_name Record
 
 @export var image: Texture
+@export var descripton: String

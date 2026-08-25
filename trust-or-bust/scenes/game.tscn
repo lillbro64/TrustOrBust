@@ -2,14 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://ch7d4ho50ugcx" path="res://nodes/identity_card/indentity_card.tscn" id="1_uwrxv"]
 [ext_resource type="Resource" uid="uid://b3e8nyrftnl7i" path="res://src/humans/hatsune_miku.tres" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://d1hywqfs8pd5o" path="res://assets/placeholders/textures/360_F_904748852_arIWUgQkRvMzxRENUGH0LeUB9MaPU68K.jpg" id="3_lnu2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
-size = Vector2(1280.5, 20)
+size = Vector2(1280.5, 131)
 
 [node name="Game" type="Node2D" unique_id=688746408]
 
 [node name="IndentityCard" parent="." unique_id=698796259 instance=ExtResource("1_uwrxv")]
-position = Vector2(128, 373)
+position = Vector2(530, 380)
 human = ExtResource("2_yqjtg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2134943754]
@@ -18,5 +19,10 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1403095182]
-position = Vector2(637, 63)
+position = Vector2(637, 7.5)
 shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="360F904748852ArIwUgQkRvMzxRenugh0LeUb9MaPu68k" type="Sprite2D" parent="." unique_id=1854045707]
+position = Vector2(630.00006, 659.5)
+scale = Vector2(1.7625, 0.352778)
+texture = ExtResource("3_lnu2h")
