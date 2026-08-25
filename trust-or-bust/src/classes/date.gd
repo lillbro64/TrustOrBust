@@ -14,8 +14,11 @@ class_name Date
 
 ## this function returns month between date1 and date2, to calculate age
 ## TODO
-func monthsBetween(date1: Date, date2: Date) -> int: 
-	var month1: int = date1.month
-	var month2: int = date2.month
-	
-	return 0
+func monthsBetween(dob: Date, date2: Date) -> int: 
+	var age = date2.year - dob.year
+	if dob.month > date2.month:
+		age -= 1
+	elif dob.month == date2.month:
+		if dob.day > date2.day:
+			age -= 1
+	return age
