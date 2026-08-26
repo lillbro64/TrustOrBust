@@ -23,33 +23,34 @@ func add_docs():
 	## TODO this if statement should handle randomly populating documents
 	## it should read fake_type to decide what documents it can pull from,
 	## pick a random amount (like 1 or 2,) and add them
-	if human.rand_docs:
-		pass
-	for i in human.documents:
-		var document
-		match i:
-			"BirthCertificate":
-				document = birth_cert_preload.instantiate()
-				document.human = human
-				document.add_to_group("documents")
-				get_tree().current_scene.call_deferred("add_child", document)
-			"Bloodwork":
-				pass
-			"CriminalRecord":
-				pass
-			"CreditReport":
-				pass
-				
-	var id = id_preload.instantiate()
-	id.human = human
-	id.add_to_group("documents")
-	get_tree().current_scene.call_deferred("add_child", id)
-	
-	var trust_doc = trust_doc_preload.instantiate()
-	trust_doc.human = human
-	trust_doc.add_to_group("documents")
-	get_tree().current_scene.call_deferred("add_child", trust_doc)
+	if(human):
+		if human.rand_docs:
+			pass
+		for i in human.documents:
+			var document
+			match i:
+				"BirthCertificate":
+					document = birth_cert_preload.instantiate()
+					document.human = human
+					document.add_to_group("documents")
+					get_tree().current_scene.call_deferred("add_child", document)
+				"Bloodwork":
+					pass
+				"CriminalRecord":
+					pass
+				"CreditReport":
+					pass
+					
+		var id = id_preload.instantiate()
+		id.human = human
+		id.add_to_group("documents")
+		get_tree().current_scene.call_deferred("add_child", id)
 		
+		var trust_doc = trust_doc_preload.instantiate()
+		trust_doc.human = human
+		trust_doc.add_to_group("documents")
+		get_tree().current_scene.call_deferred("add_child", trust_doc)
+			
 func _ready() -> void:
 	pass # Replace with function body.
 

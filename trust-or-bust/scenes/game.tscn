@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://cairdm38j5g2"]
 
+[ext_resource type="Script" uid="uid://ckocvuxmdx1cx" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://duu71lyrfuahv" path="res://nodes/documents/document_populator.tscn" id="1_yqjtg"]
-[ext_resource type="Resource" uid="uid://b3e8nyrftnl7i" path="res://src/humans/hatsune_miku.tres" id="2_lnu2h"]
+[ext_resource type="Resource" uid="uid://b3e8nyrftnl7i" path="res://resources/humans/hatsune_miku.tres" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://d1hywqfs8pd5o" path="res://assets/placeholders/textures/360_F_904748852_arIWUgQkRvMzxRENUGH0LeUB9MaPU68K.jpg" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://ckab46vf5utia" path="res://nodes/characters/miku.tscn" id="4_lbhrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(1280.5, 131)
 
 [node name="Game" type="Node2D" unique_id=688746408]
+script = ExtResource("1_iywne")
+characters = Array[PackedScene]([ExtResource("4_lbhrr")])
 
 [node name="DocumentPopulator" parent="." unique_id=713150295 instance=ExtResource("1_yqjtg")]
+unique_name_in_owner = true
 human = ExtResource("2_lnu2h")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2134943754]
@@ -21,7 +26,7 @@ collision_mask = 3
 position = Vector2(634, 101)
 shape = SubResource("RectangleShape2D_lnu2h")
 
-[node name="360F904748852ArIwUgQkRvMzxRenugh0LeUb9MaPu68k" type="Sprite2D" parent="." unique_id=1854045707]
+[node name="tableTexure" type="Sprite2D" parent="." unique_id=1854045707]
 position = Vector2(638.24994, 755.00006)
 scale = Vector2(1.7798611, 0.352778)
 texture = ExtResource("3_lnu2h")

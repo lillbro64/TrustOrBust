@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ckab46vf5utia"]
+
+[ext_resource type="Script" uid="uid://miy4q833gggr" path="res://nodes/character/character_node.gd" id="1_6aesh"]
+[ext_resource type="Resource" uid="uid://b3e8nyrftnl7i" path="res://resources/humans/hatsune_miku.tres" id="2_01sj2"]
+[ext_resource type="Texture2D" uid="uid://dhypb17rmwumc" path="res://assets/placeholders/textures/Hatsune_Miku_SP.webp" id="6_4m7hn"]
+
+[node name="Miku" type="Node2D" unique_id=1149746788]
+script = ExtResource("1_6aesh")
+human = ExtResource("2_01sj2")
+metadata/_custom_type_script = "uid://miy4q833gggr"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=902266485]
+position = Vector2(-3, -3)
+scale = Vector2(0.50083333, 0.4696439)
+texture = ExtResource("6_4m7hn")

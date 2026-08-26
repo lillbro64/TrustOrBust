@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://b3e8nyrftnl7i"]
 
-[ext_resource type="Script" uid="uid://cfoa4o5h56ua6" path="res://src/classes/purchase.gd" id="1_d2kn2"]
-[ext_resource type="Script" uid="uid://cbx47hwrlthf6" path="res://src/classes/date.gd" id="1_lkrys"]
-[ext_resource type="Script" uid="uid://b2yfx4sgqxr4o" path="res://src/classes/character.gd" id="2_j4pdj"]
-[ext_resource type="Texture2D" uid="uid://dnggvw88nt3ph" path="res://assets/placeholders/textures/hatsune.jpg" id="3_hrppl"]
+[ext_resource type="Script" uid="uid://cbx47hwrlthf6" path="res://src/classes/date.gd" id="1_gewhe"]
+[ext_resource type="Script" uid="uid://cfoa4o5h56ua6" path="res://src/classes/purchase.gd" id="2_esmuv"]
+[ext_resource type="Texture2D" uid="uid://dnggvw88nt3ph" path="res://assets/placeholders/textures/hatsune.jpg" id="3_tebo2"]
+[ext_resource type="Script" uid="uid://b2yfx4sgqxr4o" path="res://src/classes/character.gd" id="4_7lohm"]
 
 [sub_resource type="Resource" id="Resource_lkrys"]
-script = ExtResource("1_lkrys")
+script = ExtResource("1_gewhe")
 day = 31
 month = 8
 year = 2007
 metadata/_custom_type_script = "uid://cbx47hwrlthf6"
 
 [resource]
-script = ExtResource("2_j4pdj")
+script = ExtResource("4_7lohm")
 name = "Hatsune Miku"
 dob = SubResource("Resource_lkrys")
 age = 18
@@ -21,7 +21,7 @@ hair_color = "Cyan"
 height = "Tall"
 home_city = "PlaceJapan"
 id_num = "083107"
-id_pic = ExtResource("3_hrppl")
+id_pic = ExtResource("3_tebo2")
 is_child = true
 parents = Array[String](["John Vocaloid"])
 trust_reason = "I'm thinking Miku, Miku, Oo Ee Oo"
