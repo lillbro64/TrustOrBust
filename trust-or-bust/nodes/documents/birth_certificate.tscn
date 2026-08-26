@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://85k4w857we4w"]
+
+[ext_resource type="Script" uid="uid://cnqcnqru2mahl" path="res://nodes/documents/birth_certificate.gd" id="1_5ekua"]
+[ext_resource type="Texture2D" uid="uid://davudcfp5sdmy" path="res://assets/placeholders/textures/TempRealID.png" id="2_4n20f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rcwk"]
+size = Vector2(500, 300)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_babsb"]
+content_margin_left = 8.0
+content_margin_top = 16.0
+texture = ExtResource("2_4n20f")
+
+[sub_resource type="Theme" id="Theme_lk08f"]
+Please/styles/Please = SubResource("StyleBoxTexture_babsb")
+
+[node name="BirthCertificate" type="CharacterBody2D" unique_id=1361536677 groups=["Documents"]]
+collision_layer = 2
+script = ExtResource("1_5ekua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314682655]
+position = Vector2(250, 150)
+shape = SubResource("RectangleShape2D_4rcwk")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=146888086]
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_right = 500.0
+offset_bottom = 300.0
+grow_vertical = 2
+mouse_default_cursor_shape = 6
+theme = SubResource("Theme_lk08f")
+theme_override_styles/panel = SubResource("StyleBoxTexture_babsb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1600404286]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=300114421]
+layout_mode = 2
+alignment = 1
+
+[node name="BCCardTitle" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=318942707]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "BIRTH CERTIFICATE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=194014443]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=196336536]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Declaration" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1209606781]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "This certificate declares that"
+horizontal_alignment = 1
+
+[node name="BCName" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=123652489]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "TestName"
+horizontal_alignment = 1
+
+[node name="WasBorn" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2037127707]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "was born on"
+horizontal_alignment = 1
+
+[node name="BCDOB" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=940906365]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "!MONTH/!DAY/!YEAR"
+horizontal_alignment = 1
+
+[node name="Yay" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=501942283]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "Yay!"
+horizontal_alignment = 1
+
+[node name="ParentsDeclaration" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1902582261]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "The child's parents are:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1813631130]
+layout_mode = 2
+alignment = 1
+
+[node name="Parent1" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1137608031]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "!PARENT1"
+horizontal_alignment = 1
+
+[node name="Gap" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1596707653]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "            "
+horizontal_alignment = 1
+
+[node name="Parent2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1561150904]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "!PARENT2"
+horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="PanelContainer" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="." method="_on_panel_container_mouse_exited"]

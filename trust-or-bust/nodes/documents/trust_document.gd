@@ -11,22 +11,24 @@ var holding = false
 
 @export var mass: float = 1
 
-@export var human: IDCard:
+@export var fake: bool
+
+@export var human: Character:
 	get:
 		return human
 	## Fills in ID Card with person's details.
 	set(value):
-		%IDImage.texture = value.picture
-		%IDName.text = value.name
-		%IDCardNum.text = %IDCardNum.text.replacen("!IDNUM", str(value.id_num))
-		%IDDOB.text = %IDDOB.text.replacen("!MONTH", str(value.dob.month))
-		%IDDOB.text = %IDDOB.text.replacen("!DAY", str(value.dob.day))
-		%IDDOB.text = %IDDOB.text.replacen("!YEAR", str(value.dob.year))
-		%IDAge.text = %IDAge.text.replacen("!AGE", str(value.age))
-		%IDHairC.text = %IDHairC.text.replacen("!HAIRC", value.hair_color)
-		%IDHeight.text = %IDHeight.text.replacen("!HEIGHT", value.height)
-		%IDHome.text = %IDHome.text.replacen("!CITY", value.home_city)
+		%TrustName.text = value.name
+		%Declaration1.text = %Declaration1.text.replacen("!NAME", value.name)
+		%TrustDOB.text = %TrustDOB.text.replacen("!MONTH", str(value.dob.month))
+		%TrustDOB.text = %TrustDOB.text.replacen("!DAY", str(value.dob.day))
+		%TrustDOB.text = %TrustDOB.text.replacen("!YEAR", str(value.dob.year))
 		
+		%TrustReason.text = %TrustReason.text.replacen("!REASON", value.trust_reason)
+		
+		%FinalDeclaration.text = %FinalDeclaration.text.replacen("!MONTH", "08")
+		%FinalDeclaration.text = %FinalDeclaration.text.replacen("!DAY", "30")
+		%FinalDeclaration.text = %FinalDeclaration.text.replacen("!YEAR", "2026")
 		## each fake one has another idcard, the correct one, (idk if its necessary)
 		#if !value.is_child:
 			#pass

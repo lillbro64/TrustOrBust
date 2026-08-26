@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://duu71lyrfuahv"]
+
+[ext_resource type="Script" uid="uid://dyuop7buny3b3" path="res://nodes/documents/document_populator.gd" id="1_q8g0q"]
+
+[node name="DocumentPopulator" type="Node2D" unique_id=713150295]
+script = ExtResource("1_q8g0q")

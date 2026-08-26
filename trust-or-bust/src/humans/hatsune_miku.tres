@@ -1,25 +1,29 @@
-[gd_resource type="Resource" script_class="Human" format=3 uid="uid://b3e8nyrftnl7i"]
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://b3e8nyrftnl7i"]
 
-[ext_resource type="Script" uid="uid://coqkkopf0uypd" path="res://src/classes/idcard.gd" id="1_10r6f"]
-[ext_resource type="Script" uid="uid://cbx47hwrlthf6" path="res://src/classes/date.gd" id="1_j4pdj"]
-[ext_resource type="Script" uid="uid://cfoa4o5h56ua6" path="res://src/classes/purchase.gd" id="2_hrppl"]
-[ext_resource type="Texture2D" uid="uid://dnggvw88nt3ph" path="res://assets/placeholders/textures/hatsune.jpg" id="2_lkrys"]
+[ext_resource type="Script" uid="uid://cfoa4o5h56ua6" path="res://src/classes/purchase.gd" id="1_d2kn2"]
+[ext_resource type="Script" uid="uid://cbx47hwrlthf6" path="res://src/classes/date.gd" id="1_lkrys"]
+[ext_resource type="Script" uid="uid://b2yfx4sgqxr4o" path="res://src/classes/character.gd" id="2_j4pdj"]
+[ext_resource type="Texture2D" uid="uid://dnggvw88nt3ph" path="res://assets/placeholders/textures/hatsune.jpg" id="3_hrppl"]
 
-[sub_resource type="Resource" id="Resource_d2kn2"]
-script = ExtResource("1_j4pdj")
+[sub_resource type="Resource" id="Resource_lkrys"]
+script = ExtResource("1_lkrys")
 day = 31
 month = 8
 year = 2007
 metadata/_custom_type_script = "uid://cbx47hwrlthf6"
 
 [resource]
-script = ExtResource("1_10r6f")
+script = ExtResource("2_j4pdj")
 name = "Hatsune Miku"
-dob = SubResource("Resource_d2kn2")
+dob = SubResource("Resource_lkrys")
 age = 18
 hair_color = "Cyan"
 height = "Tall"
 home_city = "PlaceJapan"
-id_num = "83107"
-picture = ExtResource("2_lkrys")
-metadata/_custom_type_script = "uid://coqkkopf0uypd"
+id_num = "083107"
+id_pic = ExtResource("3_hrppl")
+is_child = true
+parents = Array[String](["John Vocaloid"])
+trust_reason = "I'm thinking Miku, Miku, Oo Ee Oo"
+documents = Array[String](["BirthCertificate"])
+metadata/_custom_type_script = "uid://b2yfx4sgqxr4o"
