@@ -1,19 +1,37 @@
 [gd_scene format=3 uid="uid://cairdm38j5g2"]
 
+[ext_resource type="AudioStream" uid="uid://bep7lmeqwmuuf" path="res://assets/placeholders/textures/assets_sounds_music_jimball.ogg" id="1_gee14"]
 [ext_resource type="Script" uid="uid://ckt2fywxlhsyf" path="res://scenes/rich_text_label.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://duu71lyrfuahv" path="res://nodes/documents/document_populator.tscn" id="1_yqjtg"]
+[ext_resource type="Shader" uid="uid://bne7nrse1m5un" path="res://assets/placeholders/shader/game.gdshader" id="2_0tnpc"]
 [ext_resource type="Resource" uid="uid://b3e8nyrftnl7i" path="res://resources/humans/hatsune_miku.tres" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dylxaif332lht" path="res://nodes/character/character_handler.tscn" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://d1hywqfs8pd5o" path="res://assets/placeholders/textures/360_F_904748852_arIWUgQkRvMzxRENUGH0LeUB9MaPU68K.jpg" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://j407i6h80svn" path="res://nodes/character/character.tscn" id="4_p57ef"]
 [ext_resource type="Script" uid="uid://b2yfx4sgqxr4o" path="res://src/classes/character.gd" id="4_u5sy4"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gee14"]
+shader = ExtResource("2_0tnpc")
+shader_parameter/brightness = 1.0
+shader_parameter/anchor = -0.5
+shader_parameter/speed_scale = 1.0
+shader_parameter/fov = 0.2
+shader_parameter/line_count = 1.0
+shader_parameter/background_color = Color(0, 0.1, 0.2, 1)
+shader_parameter/grid_color = Color(1, 0.5, 1, 1)
+shader_parameter/rainbow_intensity = 0.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(1280.5, 126)
 
 [node name="Game" type="Node2D" unique_id=688746408]
 
+[node name="FunkyTown" type="AudioStreamPlayer" parent="." unique_id=836146137]
+stream = ExtResource("1_gee14")
+autoplay = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1995166580]
+layer = -1
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1982172293]
 layout_mode = 3
@@ -27,6 +45,16 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="CoolShader" type="Panel" parent="CanvasLayer/Control" unique_id=899410933]
+z_index = -10
+material = SubResource("ShaderMaterial_gee14")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=293955220]
 layout_mode = 1
