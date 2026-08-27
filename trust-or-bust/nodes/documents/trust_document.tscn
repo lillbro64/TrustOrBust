@@ -14,7 +14,62 @@ texture = ExtResource("2_gn6w1")
 [sub_resource type="Theme" id="Theme_lk08f"]
 Please/styles/Please = SubResource("StyleBoxTexture_babsb")
 
+[sub_resource type="Animation" id="Animation_2mc37"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_3pgdl"]
+resource_name = "grow"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_33hxu"]
+resource_name = "shrink"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwew4"]
+_data = {
+&"RESET": SubResource("Animation_2mc37"),
+&"grow": SubResource("Animation_3pgdl"),
+&"shrink": SubResource("Animation_33hxu")
+}
+
 [node name="TrustDocument" type="CharacterBody2D" unique_id=1361536677 groups=["Documents"]]
+scale = Vector2(0.4, 0.4)
 collision_layer = 2
 script = ExtResource("1_dwew4")
 
@@ -145,6 +200,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 text = "Signature Placeholder"
 horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1887425164]
+libraries/ = SubResource("AnimationLibrary_dwew4")
 
 [connection signal="mouse_entered" from="PanelContainer" to="." method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="PanelContainer" to="." method="_on_panel_container_mouse_exited"]

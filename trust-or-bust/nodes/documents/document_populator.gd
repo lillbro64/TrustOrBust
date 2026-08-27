@@ -13,6 +13,8 @@ extends Node2D
 @onready var trust_doc_preload = preload("res://nodes/documents/trust_document.tscn")
 @onready var birth_cert_preload = preload("res://nodes/documents/birth_certificate.tscn")
 
+@onready var character_handler = get_tree().root.find_child("CharacterHandler", true, false)
+
 @export var human: Character:
 	get:
 		return human
@@ -62,6 +64,8 @@ func _process(_delta: float) -> void:
 	## one and have said human give their documents (documents should be handled by this script,
 	## and this script should talk with another that handles humans)
 	if Input.is_action_just_pressed("temp_action"):
+		character_handler.init_character()
+		await character_handler.anim_complete
 		for i in get_tree().get_nodes_in_group("documents"):
 			i.queue_free()
 		add_docs()

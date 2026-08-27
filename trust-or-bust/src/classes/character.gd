@@ -18,6 +18,11 @@ class_name Character
 @export var id_num: String
 @export var id_pic: Texture
 
+## TODO for some reason, the character sprite doesn't seem to switch when this is a texture itself
+## fix that in the character_portrait script, then change this back to being a texture
+## for now, just use filepath
+@export var chara_sprite: String
+
 ## is_child determines whether or not they are one of the players children (i.e. a trustee, somebody who SHOULD
 ## be awarded with trust fund money.) If true, the game should auto-fill Beff Jezos in as one of the parents,
 ## and only one other parent should be named.

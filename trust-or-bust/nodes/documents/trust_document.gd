@@ -56,13 +56,15 @@ func _physics_process(delta: float) -> void:
 	## within certain bounds (ideally, leaving the game window with it should drop it.)
 	if(mouse_inside and Input.is_action_just_pressed("l-click")):
 		holding = true
-	if Input.is_action_just_released("l-click"):
+		$AnimationPlayer.play("grow")
+	if Input.is_action_just_released("l-click") and holding:
 		holding = false
+		$AnimationPlayer.play("shrink")
 	if holding:
 		var mouse_pos: Vector2 = get_global_mouse_position()
 		move_and_collide(- current_mouse_position + mouse_pos)
 	else:
-			move_and_collide(get_gravity()*mass*delta)
+		move_and_collide(get_gravity()*mass*delta)
 	
 	# current_mouse_pos
 	current_mouse_position = get_global_mouse_position()

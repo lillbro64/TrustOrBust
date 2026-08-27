@@ -22,6 +22,7 @@ height = "Tall"
 home_city = "PlaceJapan"
 id_num = "083107"
 id_pic = ExtResource("3_tebo2")
+chara_sprite = "res://assets/placeholders/textures/TempRealPerson.png"
 is_child = true
 parents = Array[String](["John Vocaloid"])
 trust_reason = "I'm thinking Miku, Miku, Oo Ee Oo"
