@@ -1,5 +1,6 @@
 extends RichTextLabel
 
+signal finish
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,7 @@ func writte(t: String):
 
 func _on_timer_timeout() -> void:
 	if(visible_characters == text.length()):
+		emit_signal("finish")
 		$Timer.stop()
 	else:
 		visible_characters = visible_characters + 1

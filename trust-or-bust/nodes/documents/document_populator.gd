@@ -17,6 +17,10 @@ extends Node2D
 
 @onready var text_writter: RichTextLabel = get_tree().root.find_child("RichTextLabel", true, false)
 
+@onready var accept_button: Button =  get_tree().root.find_child("Accept", true, false)
+@onready var denny_button: Button =  get_tree().root.find_child("Denny", true, false)
+@onready var begin_button: Button =  get_tree().root.find_child("Begin", true, false)
+
 
 @export var human: Character:
 	get:
@@ -55,9 +59,12 @@ func add_docs():
 		trust_doc.human = human
 		trust_doc.add_to_group("documents")
 		get_tree().current_scene.call_deferred("add_child", trust_doc)
-			
+
 func _ready() -> void:
-	pass # Replace with function body.
+	text_writter.writte("Whelcome to the game!")
+	await text_writter.finish
+	print("end")
+	begin_button.show()
 
 ## so, if you spawn the space documents may appear twice or MORE
 ## that's why i control it with this bool.
@@ -106,4 +113,15 @@ func _on_accept_pressed() -> void:
 
 
 func _on_denny_pressed() -> void:
+	_next_character()
+
+
+func _on_begin_pressed() -> void:
+	_next_character()
+	begin_button.hide()
+	accept_button.show()
+	denny_button.show()
+
+## at the begginning of the game, a text will say hell o!
+func _on_rich_text_label_finish() -> void:
 	pass # Replace with function body.
