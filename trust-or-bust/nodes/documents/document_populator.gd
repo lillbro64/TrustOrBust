@@ -56,6 +56,10 @@ func add_docs():
 func _ready() -> void:
 	pass # Replace with function body.
 
+## so, if you spawn the space documents may appear twice
+## that's why i control it with this bool.
+## ITS NOT the best solution, but it works
+var can_temp: bool = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -63,10 +67,16 @@ func _process(_delta: float) -> void:
 	## It should get rid of the current human's documents, remove the human from the scene, then add the new
 	## one and have said human give their documents (documents should be handled by this script,
 	## and this script should talk with another that handles humans)
-	if Input.is_action_just_pressed("temp_action"):
+	if Input.is_action_just_pressed("temp_action") and can_temp:
+		can_temp = false
+		character_handler.bye_character()
+		await character_handler.anim_complete 
 		character_handler.init_character()
 		await character_handler.anim_complete
 		for i in get_tree().get_nodes_in_group("documents"):
 			i.queue_free()
 		add_docs()
+		
+		# And now you can temp again
+		can_temp = true
 	

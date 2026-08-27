@@ -21,7 +21,10 @@ unique_name_in_owner = true
 characters = Array[ExtResource("4_u5sy4")]([ExtResource("2_lnu2h")])
 
 [node name="Character" parent="." unique_id=575501342 instance=ExtResource("4_p57ef")]
-position = Vector2(930, 580)
+position = Vector2(1158, 481)
+
+[node name="Sprite2D" parent="Character" index="0" unique_id=1866997850]
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2134943754]
 position = Vector2(1, 654)

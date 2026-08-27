@@ -23,6 +23,11 @@ func _process(_delta: float) -> void:
 	pass
 
 
+func bye_character():
+	chara.anim_handler("bye")
+	await chara.anim_complete
+	anim_complete.emit()
+
 func init_character(): 
 	if chara.visible:
 		chara.switch_sprite(characters[current_character].chara_sprite)
