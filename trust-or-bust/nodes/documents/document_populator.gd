@@ -15,6 +15,9 @@ extends Node2D
 
 @onready var character_handler = get_tree().root.find_child("CharacterHandler", true, false)
 
+@onready var text_writter: RichTextLabel = get_tree().root.find_child("RichTextLabel", true, false)
+
+
 @export var human: Character:
 	get:
 		return human
@@ -69,9 +72,14 @@ func _process(_delta: float) -> void:
 	## and this script should talk with another that handles humans)
 	if Input.is_action_just_pressed("temp_action") and can_temp:
 		# To provenent double calling
+		pass
+		#_next_character()
+
+## this function is for the temp think
+func _next_character():
+	 # All the documents have a ""cool"" animation
+	if(can_temp):
 		can_temp = false
-		
-		 # All the documents have a ""cool"" animation
 		for i in get_tree().get_nodes_in_group("documents"):
 			i.goodbye()
 		
@@ -82,8 +90,7 @@ func _process(_delta: float) -> void:
 		# removes docs
 		for i in get_tree().get_nodes_in_group("documents"):
 			i.queue_free()
-		
-		# and the next character will appear 
+			# and the next character will appear 
 		character_handler.init_character()
 		await character_handler.anim_complete
 		
@@ -92,4 +99,11 @@ func _process(_delta: float) -> void:
 		
 		# And now you can temp again
 		can_temp = true
-	
+
+
+func _on_accept_pressed() -> void:
+	_next_character()
+
+
+func _on_denny_pressed() -> void:
+	pass # Replace with function body.
