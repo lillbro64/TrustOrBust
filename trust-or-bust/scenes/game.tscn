@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://b2yfx4sgqxr4o" path="res://src/classes/character.gd" id="4_u5sy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
-size = Vector2(1280.5, 131)
+size = Vector2(1280.5, 126)
 
 [node name="Game" type="Node2D" unique_id=688746408]
 
@@ -27,7 +27,7 @@ position = Vector2(1158, 481)
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2134943754]
-position = Vector2(1, 654)
+position = Vector2(3, 621)
 collision_layer = 3
 collision_mask = 3
 
@@ -35,8 +35,8 @@ collision_mask = 3
 position = Vector2(634, 101)
 shape = SubResource("RectangleShape2D_lnu2h")
 
-[node name="tableTexure" type="Sprite2D" parent="." unique_id=1854045707]
-position = Vector2(638.24994, 755.00006)
+[node name="tableTexure" type="Sprite2D" parent="StaticBody2D" unique_id=1854045707]
+position = Vector2(637.24994, 101.00006)
 scale = Vector2(1.7798611, 0.352778)
 texture = ExtResource("3_lnu2h")
 
