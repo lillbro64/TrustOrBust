@@ -56,7 +56,7 @@ func add_docs():
 func _ready() -> void:
 	pass # Replace with function body.
 
-## so, if you spawn the space documents may appear twice
+## so, if you spawn the space documents may appear twice or MORE
 ## that's why i control it with this bool.
 ## ITS NOT the best solution, but it works
 var can_temp: bool = true
@@ -68,13 +68,26 @@ func _process(_delta: float) -> void:
 	## one and have said human give their documents (documents should be handled by this script,
 	## and this script should talk with another that handles humans)
 	if Input.is_action_just_pressed("temp_action") and can_temp:
+		# To provenent double calling
 		can_temp = false
+		
+		 # All the documents have a ""cool"" animation
+		for i in get_tree().get_nodes_in_group("documents"):
+			i.goodbye()
+		
+		# cool animation for character
 		character_handler.bye_character()
-		await character_handler.anim_complete 
-		character_handler.init_character()
 		await character_handler.anim_complete
+		
+		# removes docs
 		for i in get_tree().get_nodes_in_group("documents"):
 			i.queue_free()
+		
+		# and the next character will appear 
+		character_handler.init_character()
+		await character_handler.anim_complete
+		
+		# adds the docs
 		add_docs()
 		
 		# And now you can temp again

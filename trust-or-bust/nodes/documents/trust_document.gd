@@ -68,7 +68,10 @@ func _physics_process(delta: float) -> void:
 	
 	# current_mouse_pos
 	current_mouse_position = get_global_mouse_position()
-	
+
+## The document is no longer here (disappears)
+func goodbye():
+	$CollisionShape2D.disabled = true
 
 func _on_panel_container_mouse_entered() -> void:
 	#print("mouse inside me")
