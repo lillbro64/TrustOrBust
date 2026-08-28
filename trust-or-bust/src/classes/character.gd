@@ -54,3 +54,10 @@ class_name Character
 ## special_records stores any special records (e.g. family photo, record of employment, etc.) that may
 ## be associated with the person. These will be relatively rare, only possessed by real people and spies.
 @export var special_records: Array
+
+## caller 1
+@export var caller_1: Caller
+## caller 2
+@export var caller_2: Caller
+## caller 3
+@export var caller_3: Caller

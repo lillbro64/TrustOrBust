@@ -22,6 +22,17 @@ extends Node2D
 @onready var begin_button: Button =  get_tree().root.find_child("Begin", true, false)
 
 
+@onready var caller_1: Button =  get_tree().root.find_child("Caller1", true, false)
+@onready var caller_2: Button =  get_tree().root.find_child("Caller2", true, false)
+@onready var caller_3: Button =  get_tree().root.find_child("Caller3", true, false)
+
+var c1: Caller
+var c2: Caller
+var c3: Caller
+## this controls if we are on a call or not
+var is_on_a_call: bool = true
+
+
 @export var human: Character:
 	get:
 		return human
@@ -104,6 +115,11 @@ func _next_character():
 		# adds the docs
 		add_docs()
 		
+		# saves callers 
+		c1 = character_handler.characters[character_handler.current_character].caller_1
+		c2 = character_handler.characters[character_handler.current_character].caller_2
+		c3 = character_handler.characters[character_handler.current_character].caller_3
+		
 		# And now you can temp again
 		can_temp = true
 
@@ -121,19 +137,65 @@ func _on_begin_pressed() -> void:
 	begin_button.hide()
 	accept_button.show()
 	denny_button.show()
+	is_on_a_call = false
 
 ## at the begginning of the game, a text will say hell o!
 func _on_rich_text_label_finish() -> void:
 	pass # Replace with function body.
 
-## this controls if we are on a call or not
-var is_on_a_call: bool = false
 
 ## call function
 func _call():
 	if(!is_on_a_call):
 		is_on_a_call = true
+		
+		accept_button.hide()
+		denny_button.hide()
+		
+		# now writte the text
+		text_writter.writte("You called the phone!")
+		await text_writter.finish
+		
+		caller_1.text = c1.caller_name
+		caller_2.text = c2.caller_name
+		caller_3.text = c3.caller_name
+		
+		caller_1.show()
+		caller_2.show()
+		caller_3.show()
+
 
 ## phone riiing 
 func _on_phone_riiiing() -> void:
 	_call()
+
+func _on_caller_1_pressed() -> void:
+	caller_1.hide()
+	caller_2.hide()
+	caller_3.hide()
+	text_writter.writte(c1.caller_dialoge)
+	await text_writter.finish
+	accept_button.show()
+	denny_button.show()
+	is_on_a_call = false
+	
+
+func _on_caller_2_pressed() -> void:
+	caller_1.hide()
+	caller_2.hide()
+	caller_3.hide()
+	text_writter.writte(c2.caller_dialoge)
+	await text_writter.finish
+	accept_button.show()
+	denny_button.show()
+	is_on_a_call = false
+
+func _on_caller_3_pressed() -> void:
+	caller_1.hide()
+	caller_2.hide()
+	caller_3.hide()
+	text_writter.writte(c3.caller_dialoge)
+	await text_writter.finish
+	accept_button.show()
+	denny_button.show()
+	is_on_a_call = false

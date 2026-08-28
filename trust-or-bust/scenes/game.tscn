@@ -106,6 +106,18 @@ visible = false
 layout_mode = 2
 text = "Start!"
 
+[node name="Caller3" type="Button" parent="UI/Control/Panel/VBoxContainer" unique_id=1410208615]
+visible = false
+layout_mode = 2
+
+[node name="Caller2" type="Button" parent="UI/Control/Panel/VBoxContainer" unique_id=296726785]
+visible = false
+layout_mode = 2
+
+[node name="Caller1" type="Button" parent="UI/Control/Panel/VBoxContainer" unique_id=1230538971]
+visible = false
+layout_mode = 2
+
 [node name="DocumentPopulator" parent="." unique_id=713150295 instance=ExtResource("1_yqjtg")]
 unique_name_in_owner = true
 position = Vector2(1, 1)
@@ -134,6 +146,9 @@ collision_mask = 4
 [connection signal="pressed" from="UI/Control/Panel/VBoxContainer/Accept" to="DocumentPopulator" method="_on_accept_pressed"]
 [connection signal="pressed" from="UI/Control/Panel/VBoxContainer/Denny" to="DocumentPopulator" method="_on_denny_pressed"]
 [connection signal="pressed" from="UI/Control/Panel/VBoxContainer/Begin" to="DocumentPopulator" method="_on_begin_pressed"]
+[connection signal="pressed" from="UI/Control/Panel/VBoxContainer/Caller3" to="DocumentPopulator" method="_on_caller_3_pressed"]
+[connection signal="pressed" from="UI/Control/Panel/VBoxContainer/Caller2" to="DocumentPopulator" method="_on_caller_2_pressed"]
+[connection signal="pressed" from="UI/Control/Panel/VBoxContainer/Caller1" to="DocumentPopulator" method="_on_caller_1_pressed"]
 [connection signal="document_fall" from="Table" to="Phone" method="_on_table_document_fall"]
 [connection signal="riiiing" from="Phone" to="DocumentPopulator" method="_on_phone_riiiing"]
 
