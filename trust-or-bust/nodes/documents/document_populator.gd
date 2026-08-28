@@ -15,7 +15,7 @@ extends Node2D
 
 @onready var character_handler = get_tree().root.find_child("CharacterHandler", true, false)
 
-@onready var text_writter: RichTextLabel = get_tree().root.find_child("RichTextLabel", true, false)
+@onready var text_writter: simpleTypewriter = get_tree().root.find_child("RichTextLabel", true, false)
 
 @onready var accept_button: Button =  get_tree().root.find_child("Accept", true, false)
 @onready var denny_button: Button =  get_tree().root.find_child("Denny", true, false)
@@ -72,9 +72,8 @@ func add_docs():
 		get_tree().current_scene.call_deferred("add_child", trust_doc)
 
 func _ready() -> void:
-	text_writter.writte("Whelcome to the game!")
-	await text_writter.finish
-	print("end")
+	text_writter.writte("Whelcome to the game!{input}{clear}Are you prepared?{option_button_1=YES!}{option_button_2=no!}{await_select}{if_selected_1={clear}Let's start the game!}{if_selected_2={clear}Uwu}")
+	await text_writter.FinishedTyping
 	begin_button.show()
 
 ## so, if you spawn the space documents may appear twice or MORE
@@ -139,11 +138,6 @@ func _on_begin_pressed() -> void:
 	denny_button.show()
 	is_on_a_call = false
 
-## at the begginning of the game, a text will say hell o!
-func _on_rich_text_label_finish() -> void:
-	pass # Replace with function body.
-
-
 ## call function
 func _call():
 	if(!is_on_a_call):
@@ -154,7 +148,7 @@ func _call():
 		
 		# now writte the text
 		text_writter.writte("You called the phone!")
-		await text_writter.finish
+		await text_writter.FinishedTyping
 		
 		caller_1.text = c1.caller_name
 		caller_2.text = c2.caller_name
@@ -174,7 +168,7 @@ func _on_caller_1_pressed() -> void:
 	caller_2.hide()
 	caller_3.hide()
 	text_writter.writte(c1.caller_dialoge)
-	await text_writter.finish
+	await text_writter.FinishedTyping
 	accept_button.show()
 	denny_button.show()
 	is_on_a_call = false
@@ -185,7 +179,7 @@ func _on_caller_2_pressed() -> void:
 	caller_2.hide()
 	caller_3.hide()
 	text_writter.writte(c2.caller_dialoge)
-	await text_writter.finish
+	await text_writter.FinishedTyping
 	accept_button.show()
 	denny_button.show()
 	is_on_a_call = false
@@ -195,7 +189,7 @@ func _on_caller_3_pressed() -> void:
 	caller_2.hide()
 	caller_3.hide()
 	text_writter.writte(c3.caller_dialoge)
-	await text_writter.finish
+	await text_writter.FinishedTyping
 	accept_button.show()
 	denny_button.show()
 	is_on_a_call = false

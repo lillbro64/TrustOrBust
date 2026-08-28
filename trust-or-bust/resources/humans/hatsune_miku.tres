@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_vtaks"]
 script = ExtResource("1_esmuv")
 caller_name = "John Vocaloid"
-caller_dialoge = "Yeees! I know about Jaff bazos"
+caller_dialoge = "Hi, John Vocaloid here {option_button_1=did you make s*x with jeff?}{option_button_2=thanks for creating my Miku}{await_select}{if_selected_1={clear}*INSERT +18 FANART HERE*}{if_selected_2={clear}Thanks ;){input}{clear}But its not only me,{w=0.1}JAFF BAZOS HELPED ME TOO}"
 metadata/_custom_type_script = "uid://ce1bjgcsj2o0m"
 
 [sub_resource type="Resource" id="Resource_kvpfn"]
