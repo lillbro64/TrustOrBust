@@ -125,3 +125,15 @@ func _on_begin_pressed() -> void:
 ## at the begginning of the game, a text will say hell o!
 func _on_rich_text_label_finish() -> void:
 	pass # Replace with function body.
+
+## this controls if we are on a call or not
+var is_on_a_call: bool = false
+
+## call function
+func _call():
+	if(!is_on_a_call):
+		is_on_a_call = true
+
+## phone riiing 
+func _on_phone_riiiing() -> void:
+	_call()

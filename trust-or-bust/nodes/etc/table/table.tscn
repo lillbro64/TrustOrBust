@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cur58eys3516d"]
+
+[ext_resource type="Texture2D" uid="uid://d1hywqfs8pd5o" path="res://assets/placeholders/textures/360_F_904748852_arIWUgQkRvMzxRENUGH0LeUB9MaPU68K.jpg" id="1_4i8mj"]
+[ext_resource type="Script" uid="uid://q1eodprk02m5" path="res://nodes/etc/table/table.gd" id="1_bh6p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(1280.5, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh6p4"]
+size = Vector2(1280.5, 129)
+
+[node name="Table" type="CharacterBody2D" unique_id=213274214]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_bh6p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200205314]
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="tableTexure" type="Sprite2D" parent="." unique_id=252570919]
+scale = Vector2(1.7798611, 0.352778)
+texture = ExtResource("1_4i8mj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1019922377]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2136189710]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_bh6p4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

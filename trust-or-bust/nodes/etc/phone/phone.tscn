@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c63pbwm2fm0ho"]
+
+[ext_resource type="Texture2D" uid="uid://b205yptu1m46g" path="res://assets/placeholders/textures/an-old-fashioned-red-telephone-isolated-on-transparent-background-png.png" id="1_0nteg"]
+[ext_resource type="Script" uid="uid://ucrjhgwboism" path="res://nodes/etc/phone/phone.gd" id="1_ymk53"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rcwk"]
+size = Vector2(199, 159)
+
+[node name="Phone" type="CharacterBody2D" unique_id=187539217]
+scale = Vector2(1, 0.99999994)
+script = ExtResource("1_ymk53")
+
+[node name="Button" type="Button" parent="." unique_id=1775916695]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -179.0
+offset_right = 179.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_0nteg")
+flat = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918292673]
+position = Vector2(13.5, 36.5)
+shape = SubResource("RectangleShape2D_4rcwk")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
